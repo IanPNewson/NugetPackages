@@ -13,7 +13,7 @@ namespace INHelpers.Diagnostics
     /// <summary>
     /// A collection of stop watches, each measuring a different set of time
     /// </summary>
-    public class Stopwatches : IReadOnlyDictionary<string, Stopwatch>
+    public class Stopwatches : IReadOnlyDictionary<string, Stopwatch>, IStopwatches
     {
         /// <summary>
         /// Starts the time ticking for the specified name
@@ -28,8 +28,8 @@ namespace INHelpers.Diagnostics
         /// <summary>
         /// Starts the time ticking for the specified name
         /// </summary>
-        public Stopwatches Stop(string name)
-        {   
+        public IStopwatches Stop(string name)
+        {
             var watch = this[name];
             watch.Stop();
             return this;
@@ -38,7 +38,7 @@ namespace INHelpers.Diagnostics
         /// <summary>
         /// Resets all stopwatches in this collection, setting them to zero
         /// </summary>
-        public Stopwatches ResetAll()
+        public IStopwatches ResetAll()
         {
             foreach (var watch in Values)
                 watch.Reset();

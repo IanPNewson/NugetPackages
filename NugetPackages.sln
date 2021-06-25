@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "INHelpers", "INHelpers\INHelpers.csproj", "{F863AFF3-9B3D-4A32-A81F-C2692E67E5F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F863AFF3-9B3D-4A32-A81F-C2692E67E5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F863AFF3-9B3D-4A32-A81F-C2692E67E5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F863AFF3-9B3D-4A32-A81F-C2692E67E5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F863AFF3-9B3D-4A32-A81F-C2692E67E5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {684514BE-A268-47C9-B3A3-39FED3235FD6}
+	EndGlobalSection
+EndGlobal

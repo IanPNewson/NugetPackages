@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Authors>Ian Newson</Authors>
+		<Description>Just a set of helpers</Description>
+		<Copyright>Yes please</Copyright>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageLicenseExpression></PackageLicenseExpression>
+		<PackageTags>linqpad-samples</PackageTags>
+		<PackageLicenseFile>license.txt</PackageLicenseFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="NewFolder\**" />
+		<EmbeddedResource Remove="linqpad-samples\**" />
+		<EmbeddedResource Remove="NewFolder\**" />
+		<None Remove="linqpad-samples\**" />
+		<None Remove="NewFolder\**" />
+		<None Include="license.txt">
+		  <Pack>True</Pack>
+		  <PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+</Project>

@@ -104,7 +104,7 @@ namespace INHelpers.Diagnostics
 
         public IEnumerator<KeyValuePair<string, Stopwatch>> GetEnumerator() => _Watches.GetEnumerator();
 
-        public bool TryGetValue(string key, [MaybeNullWhen(false)] out Stopwatch value)
+        public bool TryGetValue(string key, out Stopwatch value)
             => _Watches.TryGetValue(key, out value);
 
         IEnumerator IEnumerable.GetEnumerator() => _Watches.GetEnumerator();

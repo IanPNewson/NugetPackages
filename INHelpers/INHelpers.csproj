@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFramework>netstandard1.3</TargetFramework>
 		<Authors>Ian Newson</Authors>
 		<Description>Just a set of helpers</Description>
 		<Copyright>Yes please</Copyright>
@@ -25,6 +25,7 @@
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 </Project>

@@ -14,6 +14,24 @@ namespace INHelpers.ExtensionMethods
     /// </summary>
     public static class FilesystemExtensionMethods
     {
+        public static readonly string[] ImageExtensions = new string[]
+        {
+            ".jpg",
+            ".jpeg",
+            ".png",
+            ".gif",
+            ".bmp"
+        };
+
+        /// <summary>
+        /// Returns an array of files which are believed to be images based on their extension.
+        /// </summary>
+        public static FileInfo[] GetImageFiles(this DirectoryInfo dir)
+        {
+            return dir.GetFiles()
+                .Where(f => ImageExtensions.Any(ext => ext.Equals(f.Extension, StringComparison.OrdinalIgnoreCase)))
+                .ToArray();
+        }
 
         /// <summary>
         /// Creates a new directory representing a subdirectory of this directory

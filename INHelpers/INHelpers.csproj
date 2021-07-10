@@ -12,11 +12,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="NewFolder\**" />
 		<EmbeddedResource Remove="linqpad-samples\**" />
-		<EmbeddedResource Remove="NewFolder\**" />
 		<None Remove="linqpad-samples\**" />
-		<None Remove="NewFolder\**" />
 		<None Include="license.txt">
 		  <Pack>True</Pack>
 		  <PackagePath></PackagePath>
@@ -29,7 +26,9 @@
 
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.0.3</Version>
+		<Version>1.0.7</Version>
+		<AssemblyVersion>1.0.7.0</AssemblyVersion>
+		<FileVersion>1.0.7.0</FileVersion>
 	</PropertyGroup>
 
 </Project>

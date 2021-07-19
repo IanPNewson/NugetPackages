@@ -14,6 +14,7 @@ namespace INHelpers.ExtensionMethods
     /// </summary>
     public static class FilesystemExtensionMethods
     {
+
         public static readonly string[] ImageExtensions = new string[]
         {
             ".jpg",

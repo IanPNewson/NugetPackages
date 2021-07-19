@@ -1,1 +1,0 @@
-﻿dotnet nuget push .\INHelpers\bin\Debug\INHelpers.1.0.7.nupkg -k oy2enn3ds6umf3h5xeraojzrl3c3cipelcbz2wngyo4kqe -s https://api.nuget.org/v3/index.json

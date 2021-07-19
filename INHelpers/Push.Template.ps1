@@ -1,1 +1,5 @@
-﻿dotnet nuget push .\INHelpers\bin\Debug\INHelpers.1.0.8.nupkg -k {APIKey} -s https://api.nuget.org/v3/index.json
+﻿$APIKey = "{APIKey}"
+
+$pkgs = (New-Object System.IO.DirectoryInfo($PSScriptRoot + "\bin\Debug")).GetFiles("*.nupkg")
+$pkgs = $pkgs | Sort-Object -Descending 
+dotnet nuget push ($pkgs[0].FullName) -k $APIKey -s https://api.nuget.org/v3/index.json

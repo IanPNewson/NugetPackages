@@ -21,6 +21,9 @@ namespace INHelpers.ExtensionMethods
             return list.Where(x => null != x);
         }
 
+        /// <summary>
+        /// Converts a tree like structure into a flat list with a breadth first search
+        /// </summary>
         public static IEnumerable<T> Flatten<T>(this IEnumerable<T> list, Func<T, IEnumerable<T>> getChildren)
         {
             if (null == list)
@@ -28,10 +31,16 @@ namespace INHelpers.ExtensionMethods
             if (null == getChildren)
                 throw new ArgumentNullException(nameof(getChildren));
 
-            var result = new List<T>(list);
-            foreach (var t in list)
-                result.AddRange(getChildren(t).Flatten(getChildren));
-            return result;
+            var queue = new Queue<T>(list);
+
+            while (queue.Count > 0)
+            {
+                var item = queue.Dequeue();
+                foreach (var child in getChildren(item))
+                    queue.Enqueue(child);
+
+                yield return item;
+            }
         }
     }
 }

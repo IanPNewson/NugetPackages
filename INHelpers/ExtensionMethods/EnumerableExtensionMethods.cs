@@ -20,5 +20,18 @@ namespace INHelpers.ExtensionMethods
             }
             return list.Where(x => null != x);
         }
+
+        public static IEnumerable<T> Flatten<T>(this IEnumerable<T> list, Func<T, IEnumerable<T>> getChildren)
+        {
+            if (null == list)
+                throw new ArgumentNullException(nameof(list));
+            if (null == getChildren)
+                throw new ArgumentNullException(nameof(getChildren));
+
+            var result = new List<T>(list);
+            foreach (var t in list)
+                result.AddRange(getChildren(t).Flatten(getChildren));
+            return result;
+        }
     }
 }

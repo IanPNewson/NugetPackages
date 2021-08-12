@@ -42,5 +42,41 @@ namespace INHelpers.ExtensionMethods
                 yield return item;
             }
         }
+
+        /// <summary>
+        /// Gets all permutations of all elements in a set of sets.
+        /// E.g. [[1,2],[3,4]] yields [[1,3],[1,4],[2,3],[2,4]].
+        /// Returned sets could be in any order, but the elements within them will be in the order
+        /// of the provided sets.
+        /// </summary>
+        public static IEnumerable<IEnumerable<T>> Permutations<T>(this IEnumerable<IEnumerable<T>> setOfSets)
+        {
+            if (setOfSets is null)
+                throw new ArgumentNullException(nameof(setOfSets));
+
+            if (!setOfSets.Any() ||
+                setOfSets.All(set => !set.Any()))
+                return new List<T[]>();
+
+            var count = setOfSets.First().Count();
+
+            foreach (var otherSet in setOfSets.Skip(1))
+            {
+                count = count * otherSet.Count();
+            }
+
+            var results = new List<T[]>(count);
+
+            for (var i = 0; i < count; ++i)
+            {
+                results.Add(new T[setOfSets.Count()]);
+                for (var j = 0; j < setOfSets.Count(); ++j)
+                {
+                    results[i][j] = setOfSets.ElementAt(j).ElementAt(i % setOfSets.ElementAt(j).Count());
+                }
+            }
+
+            return results;
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace INHelpers.Diagnostics
 {
     public class CommandLineResult : ICommandLineResult
     {
-        public string Output { get; set; }
+        public string? Output { get; set; }
 
         public int ExitCode { get; set; }
 
@@ -15,12 +15,12 @@ namespace INHelpers.Diagnostics
         {
         }
 
-        public CommandLineResult(string output)
+        public CommandLineResult(string? output)
           : this(output, 0)
         {
         }
 
-        public CommandLineResult(string output, int exitCode)
+        public CommandLineResult(string? output, int exitCode)
         {
             Output = output;
             ExitCode = exitCode;

@@ -9,7 +9,7 @@ namespace INHelpers.Diagnostics
         public ICommandLineResult Run(
           string workingDirectory,
           string executable,
-          string arguments,
+          string? arguments,
           int timeout = 120000)
         {
             if (workingDirectory == null)

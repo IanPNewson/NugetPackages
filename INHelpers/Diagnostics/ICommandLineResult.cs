@@ -10,7 +10,7 @@
         /// <summary>
         /// The textual output of the process
         /// </summary>
-        string Output { get; set; }
+        string? Output { get; set; }
 
         /// <summary>
         /// The exit code of the process

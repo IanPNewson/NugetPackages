@@ -11,6 +11,8 @@ namespace INHelpers.Test.ExtensionMethods
     public class EnumerableExtensionMethodsTest
     {
 
+        #region Flatten
+
         [Fact] public void FlattenTest()
         {
             var data = new[] {
@@ -47,5 +49,31 @@ namespace INHelpers.Test.ExtensionMethods
                 Children = children.ToList();
             }
         }
+
+        #endregion
+
+        #region Permutations
+
+        [Fact] public void Permutations()
+        {
+            var input = new[]
+            {
+                new[]{1,2},
+                new[]{3,4,5},
+                new[]{6,7},
+            };
+
+            var result = input.Permutations();
+
+            Assert.Equal(12, result.Count());
+            //All unique combinations
+            Assert.Equal(12, result.Distinct().Count());
+
+            Assert.True(result.Select(x => x.ElementAt(0)).Distinct().SequenceEqual(input[0]));
+            Assert.True(result.Select(x => x.ElementAt(1)).Distinct().SequenceEqual(input[1]));
+            Assert.True(result.Select(x => x.ElementAt(2)).Distinct().SequenceEqual(input[2]));
+        }
+
+        #endregion
     }
 }

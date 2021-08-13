@@ -99,6 +99,19 @@ namespace INHelpers.Test.ExtensionMethods
             Assert.Null(result);
         }
 
+        [Fact] public void SequenceIndexChecksForNull()
+        {
+            var input = new int?[] { 0, 1, 1, null, 0 };
+            var result = input.SequenceIndex(new int?[] { 1, null });
+            Assert.Equal(2, result);
+        }
+
+        [Fact] public void SequenceIndexFindIsEmpty()
+        {
+            var input = new int?[] { 0, 1, 1, null, 0 };
+            Assert.Throws<ArgumentException>(() => input.SequenceIndex(null));
+        }
+
         #endregion
 
     }

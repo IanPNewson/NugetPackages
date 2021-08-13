@@ -84,8 +84,12 @@ namespace INHelpers.ExtensionMethods
         /// </summary>
         public static int? SequenceIndex<T>(this IEnumerable<T> input, IEnumerable<T> find)
         {
-            if (input == null) return null;
-            if (find == null) return null;
+            if (input is null)
+                throw new ArgumentNullException(nameof(input));
+
+            if (find == null ||
+                !find.Any())
+                throw new ArgumentException("find may not be null or empty", nameof(find));
 
             var findCount = find.Count();
             var inputCount = input.Count();

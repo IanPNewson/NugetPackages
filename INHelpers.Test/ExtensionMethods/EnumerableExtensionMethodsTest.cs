@@ -75,5 +75,31 @@ namespace INHelpers.Test.ExtensionMethods
         }
 
         #endregion
+
+        #region SequenceIndex
+
+        [Fact] public void SequenceIndexAtStart()
+        {
+            var input = new[] { 0, 1, 1, 1, 0 };
+            var result = input.SequenceIndex(new[] { 0 });
+            Assert.Equal(0, result);
+        }
+
+        [Fact] public void SequenceIndexAtEnd()
+        {
+            var input = new[] { 0, 1, 1, 1, 0 };
+            var result = input.SequenceIndex(new[] { 1, 0 });
+            Assert.Equal(3, result);
+        }
+
+        [Fact] public void SequenceIndexNotFound()
+        {
+            var input = new[] { 0, 1, 1, 1, 0 };
+            var result = input.SequenceIndex(new[] { 2 });
+            Assert.Null(result);
+        }
+
+        #endregion
+
     }
 }

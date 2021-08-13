@@ -78,5 +78,27 @@ namespace INHelpers.ExtensionMethods
 
             return results;
         }
+
+        /// <summary>
+        /// Returns the first index of a sequence within another sequence
+        /// </summary>
+        public static int? SequenceIndex<T>(this IEnumerable<T> input, IEnumerable<T> find)
+        {
+            if (input == null) return null;
+            if (find == null) return null;
+
+            var findCount = find.Count();
+            var inputCount = input.Count();
+
+            if (findCount > inputCount) return null;
+
+            for (var start = 0; start <= inputCount - findCount; ++start)
+            {
+                if (input.Skip(start).Take(findCount)
+                    .SequenceEqual(find))
+                    return start;
+            }
+            return null;
+        }
     }
 }

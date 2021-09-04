@@ -62,7 +62,7 @@ namespace INHelpers.ExtensionMethods
 
             foreach (var otherSet in setOfSets.Skip(1))
             {
-                count = count * otherSet.Count();
+                count *= otherSet.Count();
             }
 
             var results = new List<T[]>(count);
@@ -98,11 +98,19 @@ namespace INHelpers.ExtensionMethods
 
             for (var start = 0; start <= inputCount - findCount; ++start)
             {
-                if (input.Skip(start).Take(findCount)
-                    .SequenceEqual(find))
+                if (SequenceEqual(input.Skip(start).Take(findCount), find))
                     return start;
             }
             return null;
+
+            bool SequenceEqual(IEnumerable<T> left, IEnumerable<T> right)
+            {
+                var count = left.Count();
+                for (var i = 0; i < count; ++i)
+                    if (!object.Equals(left.ElementAt(i), right.ElementAt(i)))
+                        return false;
+                return true;
+            }
         }
     }
 }

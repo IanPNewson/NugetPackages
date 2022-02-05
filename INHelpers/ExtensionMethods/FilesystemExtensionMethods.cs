@@ -29,7 +29,7 @@ namespace INHelpers.ExtensionMethods
         /// </summary>
         public static FileInfo[] GetImageFiles(this DirectoryInfo dir, SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
-            return dir.GetFiles(searchOption)
+            return dir.GetFiles("*", searchOption)
                 .Where(f => ImageExtensions.Any(ext => ext.Equals(f.Extension, StringComparison.OrdinalIgnoreCase)))
                 .ToArray();
         }

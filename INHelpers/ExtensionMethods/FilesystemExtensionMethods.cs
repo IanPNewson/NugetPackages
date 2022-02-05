@@ -27,9 +27,9 @@ namespace INHelpers.ExtensionMethods
         /// <summary>
         /// Returns an array of files which are believed to be images based on their extension.
         /// </summary>
-        public static FileInfo[] GetImageFiles(this DirectoryInfo dir)
+        public static FileInfo[] GetImageFiles(this DirectoryInfo dir, SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
-            return dir.GetFiles()
+            return dir.GetFiles(searchOption)
                 .Where(f => ImageExtensions.Any(ext => ext.Equals(f.Extension, StringComparison.OrdinalIgnoreCase)))
                 .ToArray();
         }

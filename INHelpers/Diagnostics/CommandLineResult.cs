@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace INHelpers.Diagnostics
+﻿namespace INHelpers.Diagnostics
 {
     public class CommandLineResult : ICommandLineResult
     {

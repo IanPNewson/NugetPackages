@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace INHelpers.ExtensionMethods
+﻿namespace INHelpers.ExtensionMethods
 {
     public static class NumberExtensionMethods
     {

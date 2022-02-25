@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace INHelpers.Trees
+﻿namespace INHelpers.Trees
 {
     /// <inheritdoc />
     public class Tree<T> : ITree<T>

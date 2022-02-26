@@ -37,18 +37,18 @@ namespace INHelpers.InterpolatedStrings
         {
             if (format != null)
             {
-                switch (t)
+                if (t is bool || Nullable.GetUnderlyingType(typeof(T)) == typeof(bool))
                 {
-                    case bool b:
-                        var formatOptions = GetBoolFormat(format!);
-                        if (b)
-                            _defaultHandler.AppendLiteral(formatOptions.trueString);
-                        else
-                            _defaultHandler.AppendLiteral(formatOptions.falseString);
-                        break;
-                    default:
-                        _defaultHandler.AppendFormatted(t, format);
-                        break;
+                    var value = t as bool?;
+                    var formatOptions = GetBoolFormat(format!);
+                    if (value == true)
+                        _defaultHandler.AppendLiteral(formatOptions.trueString);
+                    else
+                        _defaultHandler.AppendLiteral(formatOptions.falseString);
+                }
+                else
+                {
+                    _defaultHandler.AppendFormatted(t, format);
                 }
             }
             else

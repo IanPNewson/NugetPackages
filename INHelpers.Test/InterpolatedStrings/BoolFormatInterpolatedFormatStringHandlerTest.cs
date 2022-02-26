@@ -23,6 +23,13 @@ namespace INHelpers.Test.InterpolatedStrings
             Assert.Equal("no", (string)result);
         }
 
+        [Fact] public void NullIsFalseTest()
+        {
+            bool? value = null;
+            BoolFormat result = $"{value:yes:no}";
+            Assert.Equal("no", (string)result);
+        }
+
         [Fact] public void InvalidFormatTest_MissingCCondition()
         {
             Assert.Throws<ArgumentException>(() =>

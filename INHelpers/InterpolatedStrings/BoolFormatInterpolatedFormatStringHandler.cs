@@ -35,21 +35,15 @@ namespace INHelpers.InterpolatedStrings
 
         public void AppendFormatted<T>(T t, string? format = null)
         {
-            if (format != null)
+            if (format != null &&
+                t is bool || Nullable.GetUnderlyingType(typeof(T)) == typeof(bool))
             {
-                if (t is bool || Nullable.GetUnderlyingType(typeof(T)) == typeof(bool))
-                {
-                    var value = t as bool?;
-                    var formatOptions = GetBoolFormat(format!);
-                    if (value == true)
-                        _defaultHandler.AppendLiteral(formatOptions.trueString);
-                    else
-                        _defaultHandler.AppendLiteral(formatOptions.falseString);
-                }
+                var value = t as bool?;
+                var formatOptions = GetBoolFormat(format!);
+                if (value == true)
+                    _defaultHandler.AppendLiteral(formatOptions.trueString);
                 else
-                {
-                    _defaultHandler.AppendFormatted(t, format);
-                }
+                    _defaultHandler.AppendLiteral(formatOptions.falseString);
             }
             else
             {

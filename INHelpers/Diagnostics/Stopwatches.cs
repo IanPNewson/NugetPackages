@@ -47,7 +47,6 @@ namespace INHelpers.Diagnostics
         /// <param name="iterations">If provided, this is the number of iterations the stopwatch applies and therefore the total time will be divided by this to produce the average</param>
         public string Summary(int? iterations = null)
         {
-
             return string.Join("\r\n",
                 this.Select(kvp => $"{kvp.Key}: {TimeSpan.FromMilliseconds(kvp.Value.ElapsedMilliseconds / (iterations ?? kvp.Value.ElapsedMilliseconds)).ToDisplayFormat()}"));
         }
@@ -80,7 +79,7 @@ namespace INHelpers.Diagnostics
         {
             get
             {
-                Stopwatch watch;
+                Stopwatch? watch;
                 if (!_Watches.TryGetValue(key, out watch))
                 {
                     watch = new Stopwatch();
@@ -101,7 +100,7 @@ namespace INHelpers.Diagnostics
         public IEnumerator<KeyValuePair<string, Stopwatch>> GetEnumerator() => _Watches.GetEnumerator();
 
         public bool TryGetValue(string key, out Stopwatch value)
-            => _Watches.TryGetValue(key, out value);
+            => _Watches.TryGetValue(key, out value!);
 
         IEnumerator IEnumerable.GetEnumerator() => _Watches.GetEnumerator();
 

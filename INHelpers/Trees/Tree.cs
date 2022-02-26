@@ -37,6 +37,8 @@
 
         public override string ToString()
         {
+            if (Children == null)
+                return Item?.ToString()??"(item is null)";
             return $"{Item} > ({string.Join(" | ", Children.Select(x => x.ToString()))})";
         }
     }

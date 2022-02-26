@@ -27,12 +27,12 @@ namespace INHelpers.Diagnostics
             process.StartInfo = processStartInfo;
             process.Start();
             process.WaitForExit(timeout);
-            string str1;
-            while ((str1 = process.StandardOutput.ReadLine()) != null)
-                stringBuilder.AppendLine(str1);
-            string str2;
-            while ((str2 = process.StandardError.ReadLine()) != null)
-                stringBuilder.AppendLine(str2);
+            string? stdOut;
+            while ((stdOut = process.StandardOutput.ReadLine()) != null)
+                stringBuilder.AppendLine(stdOut);
+            string? stdErr;
+            while ((stdErr = process.StandardError.ReadLine()) != null)
+                stringBuilder.AppendLine(stdErr);
             return new CommandLineResult(stringBuilder.ToString(), process.ExitCode);
         }
     }

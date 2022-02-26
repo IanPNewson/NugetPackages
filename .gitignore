@@ -387,3 +387,5 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 INHelpers/Push.ps1
+INHelpers/AnalysisReport.sarif
+INHelpers/upgrade-assistant.clef

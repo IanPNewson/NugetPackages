@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using BoolFormat = INHelpers.InterpolatedStrings.BoolFormatInterpolatedFormatStringHandler;
+using BoolFormat = INHelpers.InterpolatedStrings.BoolFormatInterpolatedStringHandler;
 
 namespace INHelpers.Test.InterpolatedStrings
 {

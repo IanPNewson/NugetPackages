@@ -8,21 +8,21 @@ namespace INHelpers.InterpolatedStrings
     /// <summary>
     /// An inpolated string handler that provides format options for boolean values in interpolated strings.
     /// <code>
-    /// BoolFormatInterpolatedFormatStringHandler str = $"{true:true string:false string}";
+    /// BoolFormatInterpolatedStringHandler str = $"{true:true string:false string}";
     /// </code>
     /// Types other than bool are passed through to the default handler.
     /// This type name is a bit long so it's recommended to alias it in your own code:
     /// <code>
-    /// using BoolFormat = INHelpers.InterpolatedStrings.BoolFormatInterpolatedFormatStringHandler;
+    /// using BoolFormat = INHelpers.InterpolatedStrings.BoolFormatInterpolatedStringHandler;
     /// BoolFormat str = $"{true:true string:false string}";
     /// </code>
     /// A known limitation of this handler is that the true and false strings cannot contain a colon (:).
     /// </summary>
     [InterpolatedStringHandler]
-    public ref struct BoolFormatInterpolatedFormatStringHandler
+    public ref struct BoolFormatInterpolatedStringHandler
     {
         private System.Runtime.CompilerServices.DefaultInterpolatedStringHandler _defaultHandler;
-        public BoolFormatInterpolatedFormatStringHandler(int literalLength, int formattedLength)
+        public BoolFormatInterpolatedStringHandler(int literalLength, int formattedLength)
         {
             _defaultHandler = new System.Runtime.CompilerServices.DefaultInterpolatedStringHandler(literalLength, formattedLength);
         }
@@ -85,7 +85,7 @@ namespace INHelpers.InterpolatedStrings
 
         #region operators
 
-        public static implicit operator string(BoolFormatInterpolatedFormatStringHandler handler) => handler.ToString();
+        public static implicit operator string(BoolFormatInterpolatedStringHandler handler) => handler.ToString();
 
         #endregion
 

@@ -6,9 +6,15 @@
         /// <summary>
         /// Returns text summary of the progress to the total
         /// </summary>
-        public static string ToProgressSummary(this int i, int total)
+        [Obsolete]
+        public static string ToProgressSummary(this int i, int total) => new Progress(i, total).ToProgressSummary();
+
+        /// <summary>
+        /// Returns text summary of the progress to the total
+        /// </summary>
+        public static string ToProgressSummary(this Progress progress)
         {
-            return $"{i}/{total} ({i.ToPercent(total)*100:0.#}%)";
+            return $"{progress.Index}/{progress.Total} ({progress.Index.ToPercent(progress.Total)*100:0.#}%)";
         }
 
         /// <summary>

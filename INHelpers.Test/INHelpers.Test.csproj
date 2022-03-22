@@ -24,6 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\INHelpers.Dev\INHelpers.Dev.csproj" />
 		<ProjectReference Include="..\INHelpers\INHelpers.csproj" />
 	</ItemGroup>
 

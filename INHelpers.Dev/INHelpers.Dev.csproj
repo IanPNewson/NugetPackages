@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RootNamespace>$(MSBuildProjectName.Replace(".Dev", ""))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\INHelpers\INHelpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Push.ps1">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Push.Template.ps1">
+      <SubType>Component</SubType>
+    </None>
+  </ItemGroup>
+
+</Project>

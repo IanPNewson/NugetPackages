@@ -389,3 +389,4 @@ FodyWeavers.xsd
 INHelpers/Push.ps1
 INHelpers/AnalysisReport.sarif
 INHelpers/upgrade-assistant.clef
+INHelpers.Dev/Push.ps1

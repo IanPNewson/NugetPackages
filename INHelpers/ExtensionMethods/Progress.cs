@@ -13,15 +13,15 @@ namespace INHelpers.ExtensionMethods
     {
         public int Index { get; }
 
-        public int Total { get; }
+        public long Total { get; }
 
-        public Progress(int index, int total)
+        public Progress(int index, long total)
         {
             Index = index;
             Total = total;
         }
 
-        public static implicit operator Progress((int index, int total) tuple) => new Progress(tuple.index, tuple.total);
+        public static implicit operator Progress((int index, long total) tuple) => new Progress(tuple.index, tuple.total);
 
     }
 

@@ -7,7 +7,7 @@
         /// Returns text summary of the progress to the total
         /// </summary>
         [Obsolete]
-        public static string ToProgressSummary(this int i, int total) => new Progress(i, total).ToProgressSummary();
+        public static string ToProgressSummary(this int i, long total) => new Progress(i, total).ToProgressSummary();
 
         /// <summary>
         /// Returns text summary of the progress to the total
@@ -20,7 +20,7 @@
         /// <summary>
         /// Returns the percentage this number is of the total. 0 <= x <= 1
         /// </summary>
-        public static double ToPercent(this int i, int total)
+        public static double ToPercent(this int i, long total)
         {
             if (i < 0) throw new ArgumentException("i must be >= 0", nameof(i));
             if (total < 0) throw new ArgumentException("total must be >= 0", nameof(i));

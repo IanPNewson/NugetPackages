@@ -15,11 +15,11 @@ namespace INHelpers.ExtensionMethods
 
         public IEnumerable<T> Items { get; }
         public int ProgressEvery { get; }
-        public int Total { get; private set; }
+        public long Total { get; private set; }
         public Action<ProgressUpdate<T>> OnUpdate { get; }
         public int Index { get; private set; }
 
-        public ProgressUpdater(IEnumerable<T> items, int progressEvery = 10, int? total = null, Action<ProgressUpdate<T>>? onUpdate = null)
+        public ProgressUpdater(IEnumerable<T> items, int progressEvery = 10, long? total = null, Action<ProgressUpdate<T>>? onUpdate = null)
         {
             Items = items;
             ProgressEvery = progressEvery;
@@ -69,11 +69,11 @@ namespace INHelpers.ExtensionMethods
 
         public int Index { get; }
 
-        public int Total { get; }
+        public long Total { get; }
 
         public TimeSpan Elapsed { get; }
 
-        public ProgressUpdate(T first, T last, int index, int total, TimeSpan elapsed)
+        public ProgressUpdate(T first, T last, int index, long total, TimeSpan elapsed)
         {
             First = first;
             Last = last;
@@ -92,7 +92,7 @@ namespace INHelpers.ExtensionMethods
             this IEnumerable<T> items, 
             int progressEvery = 10,
             Action<ProgressUpdate<T>>? onUpdate = null,
-            int? total = null)
+            long? total = null)
         {
             return new ProgressUpdater<T>(items, progressEvery, total, onUpdate);
         }

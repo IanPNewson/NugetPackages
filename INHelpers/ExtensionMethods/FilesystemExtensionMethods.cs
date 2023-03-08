@@ -10,6 +10,31 @@ namespace INHelpers.ExtensionMethods
     public static class FilesystemExtensionMethods
     {
 
+        /// <summary>
+        /// Recurses over all entries in a directory, calling back for each directory and file found
+        /// </summary>
+        [CantTest("Depends on system IO primarily")]
+        public static void Recurse(this DirectoryInfo dir, Action<DirectoryInfo>? dirs = null, Action<FileInfo>? files = null)
+        {
+            if (dir is null)
+            {
+                throw new ArgumentNullException(nameof(dir));
+            }
+
+            foreach (var file in dir.GetFiles())
+            {
+                files?.Invoke(file);
+            }
+
+            foreach (var sub in dir.GetDirectories())
+            {
+                dirs?.Invoke(sub);
+
+                Recurse(sub, dirs, files);
+            }
+        }
+
+
         public static readonly string[] ImageExtensions = new string[]
         {
             ".jpg",
